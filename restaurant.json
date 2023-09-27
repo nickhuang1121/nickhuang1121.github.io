@@ -1,0 +1,32 @@
+[
+    {
+        "URL": "https://www.ipartea.com/index.php?lang=tw",
+        "id": "111",
+        "address": "111臺北市士林區福華路164巷15號",
+        "name": "茶聚",
+        "localname": "芝山福華店",
+        "tel": "(02)8866-3133",
+        "rating": 5,
+        "photo": "https://lh3.googleusercontent.com/p/AF1QipNIXodLFGifTbHTFmC-e5o_4A-Luc8v69qFLByw=s680-w680-h510"
+    },
+    {
+        "URL": "https://www.milksha.com/",
+        "id": "112",
+        "address": "11282臺北市北投區裕民一路40巷33號",
+        "name": "迷客夏",
+        "localname": "臺北石牌店",
+        "tel": "(02)2823-1008",
+        "rating": 5,
+        "photo": "https://lh3.googleusercontent.com/p/AF1QipO6YIJdqvMP-kb9rxNfjwUStgx8qo-jxB2tgaPH=s680-w680-h510"
+    },
+    {
+        "URL": "https://www.taiwan7tea.com.tw/",
+        "id": "112",
+        "address": "24151新北市三重區五華街91號",
+        "name": "七盞茶",
+        "localname": "三重五華店",
+        "tel": "(02)971-5091",
+        "rating": 5,
+        "photo": "https://lh3.googleusercontent.com/p/AF1QipNyauPSmomBebAl7ZzdmDKp-G0026lqHd8CLEPd=s680-w680-h510"
+    }
+]

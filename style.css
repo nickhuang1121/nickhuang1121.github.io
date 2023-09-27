@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Noto+Serif+TC:wght@200;300;400;500;600;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+
+.res {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.res li {
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px 60px 10px;
+    width: 300px;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+
+.res li img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.res li h3 {
+    font: 500 18px/1.6 "Noto Sans TC";
+    color: black;
+}
+
+.res li h4 {
+    font: 300 15px/1.6 "Noto Sans TC";
+    color: black;
+}
+
+.res li p {
+    font: 300 15px/1.6 "Noto Sans TC";
+    color: black;
+}
+
+.res li p span {
+    padding: 0 10px;
+    color: white;
+    background: lightblue;
+    border-radius: 99em;
+}
+
+.res li .btn_order {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: block;
+    width: calc(100% - 20px);
+    font: 300 20px/1.6 "Noto Sans TC";
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background: lightcoral;
+    border-radius: 99em;
+}
+
+.rating {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 3px 5px;
+    font: 700 15px/1"Noto Sans TC";
+    border-radius: 99em;
+    background: white;
+}
+
+.rating i {
+    display: inline-block;
+    margin-right: 2px;
+    color: lightsalmon;
+}
+
+
+
+.orderBoard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.orderBoard>ul {
+    margin: 0 auto;
+    padding: 20px;
+    width: 95%;
+    max-width: 800px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.orderBoard_title {
+    font: 700 35px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+}
+
+.orderBoard_categoryname {
+    font: 500 25px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+}
+
+.orderBoard_category_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.orderBoard_category_list li {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    width: 300px;
+}
+
+.orderBoard_category_list li>* {
+    flex-shrink: 0;
+}
+
+.orderBoard_category_list li p {
+    display: block;
+    width: 100%;
+    font: 500 20px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+
+}
+
+.orderBoard_category_list_size {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.orderBoard_category_list_size>a {
+    display: inline-block;
+    flex-shrink: 1;
+    flex-grow: 1;
+    padding: 10px 0;
+    font: 500 15px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid #efefef;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.orderBoard_category_list_size>a:hover {
+    transform: translateY(-3px);
+}
+
+.addBoard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.addBoard_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 95%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5 10px rgba(0, 0, 0, 0.1);
+}
+
+.addBoard_list_num {
+    padding: 10px 0;
+    width: 100%;
+    font: 500 15px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.addBoard_list li {
+    display: block;
+    flex-shrink: 0;
+    flex-grow: 0;
+    padding: 10px 0;
+    width: 100%;
+    font: 500 15px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 1px solid #efefef;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.addBoard_list li a {
+    display: block;
+    text-decoration: none;
+    color: black
+}
+
+.newOrder {
+    margin: 10px auto 0 auto;
+    padding: 20px;
+    width: 95%;
+    max-width: 800px;
+    background: white;
+    border-radius: 20px;
+    background: white;
+}
+
+.newOrder p {
+    font: 500 15px/1.6 "Noto Sans TC";
+    color: black;
+    text-align: center;
+}
+
+.newOrder_addCartBtn a {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 0;
+    font: 500 20px/1.6 "Noto Sans TC";
+
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    background: lightcoral;
+}
+
+.newOrder_cancelBtn {
+    text-align: center;
+}
+
+.newOrder_cancelBtn a {
+    font: 300 10px/1.6 "Noto Sans TC";
+    color: #757575;
+}
+
+.cart {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: auto;
+    background: white;
+    z-index: 25;
+}
+
+.cart_list {
+    display: inline-block;
+    width: calc(100% - 150px);
+
+}
+
+.sendCart {
+    display: inline-flex;
+    width: 150px;
+
+}
+
+.sendCart a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font: 500 20px/1.6 "Noto Sans TC";
+    color: #fff200;
+    text-align: center;
+    text-decoration: none;
+    background: lightcoral;
+}
+
+.cart_list ul {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    overflow-x: scroll;
+
+}
+
+.cart_list ul li {
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+
+}
+
+.cart_list ul li p {
+    font: 500 15px/1.6 "Noto Sans TC";
+}
+
+.cart_list .del {
+    font: 300 10px/1.6 "Noto Sans TC";
+    color: #757575;
+}

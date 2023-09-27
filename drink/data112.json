@@ -1,0 +1,71 @@
+{
+    "URL": "https://www.milksha.com/",
+    "id": "112",
+    "address": "11282臺北市北投區裕民一路40巷33號",
+    "name": "迷客夏",
+    "localname": "臺北石牌店",
+    "tel": "(02)2823-1008",
+    "rating": 5,
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipO6YIJdqvMP-kb9rxNfjwUStgx8qo-jxB2tgaPH=s680-w680-h510",
+    "categoryitem": [
+        {
+            "categoryname": "茶類",
+            "item": [
+                {
+                    "name": "錫蘭紅茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "50"
+                        },
+                        {
+                            "size": "L",
+                            "price": "55"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "60"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                },
+                {
+                    "name": "斯巴克綠茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "55"
+                        },
+                        {
+                            "size": "L",
+                            "price": "65"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "70"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

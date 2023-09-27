@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <ul class="res">
+            <li v-for="(i,key) in resData" :key="key">
+                <div class="rating"><i class="fa-solid fa-star"></i>{{i.rating}}</div>
+                <img v-bind:src="i.photo" alt="">
+                <h3>{{i.name}}</h3>
+                <h4>{{i.localname}}</h4>
+                <p><span>電話</span>{{i.tel}}</p>
+                <a class="btn_order" href="javascript:void(0)" v-on:click="checkOrderING(i.id)">訂購飲料</a>
+            </li>
+        </ul>
+
+        <div class="orderBoard" v-if="orderING">
+            <ul>
+                <li>
+                    <p class="orderBoard_title">{{orderList.name}}</p>
+                    <div v-for="i in orderList.categoryitem">
+                        <div class="orderBoard_categoryname">{{i.categoryname}}</div>
+                        <ul class="orderBoard_category_list">
+                            <li v-for="l in i.item">
+                                <p>{{l.name}}</p>
+                                <div class="orderBoard_category_list_size">
+                                    <a href="javascript:void(0)" v-on:click="newOrderAdd(l,p.size,p.price,l.add)"
+                                        v-for="p in l.price">
+                                        {{p.size}}：{{p.price}} 元
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="addBoard" v-if="addIngredientsING">
+            <ul class="addBoard_list">
+                <input type="number" class="addBoard_list_num" v-model="newOrder.num" v-on:change="changeNum" :min="1">
+                <li v-for="i in addList">
+                    <a href="javascript:void(0)" v-on:click="newIngredientsAdd(i)">{{i.name}}：{{i.price}} 元</a>
+
+                </li>
+            </ul>
+            <div class="newOrder">
+                <p>目前餐點</p>
+                <p>品項：{{newOrder.name}}</p>
+                <p>尺寸：{{newOrder.size}}</p>
+                <p>單價：{{newOrder.price}}</p>
+                <p>加料：{{newOrder.add}}</p>
+                <p>加料價格：{{newOrder.addPrice}}</p>
+                <p>數量：{{newOrder.num}}</p>
+                <p>總價：{{newOrder.totalPrice}}</p>
+                <div class="newOrder_addCartBtn">
+                    <a href="javascript:void(0)" v-on:click="pushCart">加入購物車</a>
+                </div>
+                <div class="newOrder_cancelBtn">
+                    <a href="javascript:void(0)" v-on:click="cancelNewOrder">取消</a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="cart">
+            <div class="cart_list">
+                <ul>
+                    <li v-for="(i,key) in cart" :key="key">
+                        <p>{{i.name}}</p>
+                        <p>配料：{{i.add}}</p>
+                        <p>數量：{{i.num}}</p>
+                        <p>價格：{{i.totalPrice}}</p>
+                        <a href="javascript:void(0)" class="del" v-on:click="del(key)">刪除</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="sendCart">
+                <a href="javascript:void(0)" v-on:click="sendCart">
+                    總價：{{ totalPrice()}} <br>
+                    送出訂單
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+        let resData = null;
+
+
+        fetch('./restaurant.json')
+            .then((response) => response.json())
+            .then((json) => {
+                console.log(json);
+                resData = json;
+
+                app.mount('#app');
+            });
+
+
+        const app = createApp({
+            data() {
+                return {
+                    count: 0,
+                    message: "Hello world!",
+                    resData: resData,
+                    orderING: false,
+                    addIngredientsING: false,
+                    orderList: {
+                        "URL": "",
+                        "id": "",
+                        "address": "",
+                        "name": "",
+                        "localname": "",
+                        "tel": "",
+                        "rating": 0,
+                        "photo": "",
+                        "categoryitem": [
+                            {
+                                "categoryname": "",
+                                "item": [
+                                    {
+                                        "name": "",
+                                        "price": [
+                                            {
+                                                "size": "0",
+                                                "price": "0"
+                                            }
+                                        ],
+                                        "add": [
+                                            {
+                                                "name": "0",
+                                                "price": 0
+                                            }
+
+                                        ]
+                                    }
+
+                                ]
+                            }
+                        ]
+                    },
+                    addList: [],
+                    newOrder: {
+                        name: "",
+                        size: "",
+                        num: 1,
+                        price: "",
+                        add: "無",
+                        addPrice: 0,
+                        totalPrice: 0
+                    },
+                    cart: []
+                }
+            },
+            methods: {
+                change() {
+                    this.message = "ddd"
+                },
+                star() {
+                    return "55";
+                },
+                order(i) {
+                    console.log(i)
+                },
+                checkOrderING(id) {
+                    if (this.orderING) {
+                        let yes = confirm("已有正在預定的訂單，如果重選餐廳，舊有訂單將被移除，你確定要重選餐廳嗎?");
+                        if (yes) {
+                            //alert('你按了確定按鈕');
+                            this.getDrinkList(id);
+                        } else {
+                            //alert('你按了取消按鈕');
+                        }
+                    } else {
+                        this.getDrinkList(id);
+                    }
+                },
+                getDrinkList(id) {
+                    this.orderING = true;
+                    let flie = "./drink/data" + id + ".json"
+                    fetch(flie)
+                        .then((response) => response.json())
+                        .then((json) => {
+                            this.orderList = json;
+                        });
+                },
+                newOrderAdd(body, size, price, obj) {
+
+                    this.newOrder.name = body.name;
+                    this.newOrder.size = size;
+                    this.newOrder.num = 1;
+                    this.newOrder.price = parseInt(price);
+                    this.newOrder.totalPrice = (parseInt(this.newOrder.price) + parseInt(this.newOrder.addPrice)) * this.newOrder.num;
+
+                    this.addList = obj;
+
+
+                    this.addIngredientsING = true
+                },
+                newIngredientsAdd(obj) {
+                    this.newOrder.add = obj.name;
+                    this.newOrder.addPrice = parseInt(obj.price);
+                    this.newOrder.totalPrice = (parseInt(this.newOrder.price) + parseInt(obj.price)) * this.newOrder.num;
+
+                },
+                changeNum(val) {
+
+                    this.newOrder.totalPrice = (parseInt(this.newOrder.price) + parseInt(this.newOrder.addPrice)) * this.newOrder.num;
+                },
+                resetNewOrder() {
+                    this.newOrder.name = "";
+                    this.newOrder.size = "";
+                    this.newOrder.num = 1;
+                    this.newOrder.price = 0;
+                    this.newOrder.add = "無";
+                    this.newOrder.addPrice = 0;
+                    this.newOrder.totalPrice = 0;
+
+                    this.addIngredientsING = false;
+                },
+                pushCart() {
+                    this.cart.push(JSON.parse(JSON.stringify(this.newOrder)));
+                    this.resetNewOrder();
+
+                },
+                del(key) {
+                    if (confirm("確定移除此項商品?")) {
+                        this.cart.splice(key, 1);
+                    } else {
+
+                    }
+                },
+                cancelNewOrder() {
+                    this.addIngredientsING = false;
+                    this.resetNewOrder();
+                },
+                totalPrice() {
+                    let total = 0;
+                    this.cart.forEach(e => {
+                        total += e.totalPrice;
+                    });
+                    return total;
+                },
+                sendCart() {
+                    if (confirm("確定送出訂單?")) {
+                        alert("訂單已經送出");
+                        this.resetNewOrder();
+                        this.orderING = false;
+                        this.cart = [];
+                    } else {
+
+                    }
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
