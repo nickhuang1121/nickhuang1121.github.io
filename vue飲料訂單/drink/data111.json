@@ -1,0 +1,146 @@
+{
+    "URL": "https://www.ipartea.com/index.php?lang=tw",
+    "id": "111",
+    "address": "111臺北市士林區福華路164巷15號",
+    "name": "茶聚",
+    "localname": "芝山福華店",
+    "tel": "(02)8866-3133",
+    "rating": 5,
+    "photo": "https://lh3.googleusercontent.com/p/AF1QipNIXodLFGifTbHTFmC-e5o_4A-Luc8v69qFLByw=s680-w680-h510",
+    "categoryitem": [
+        {
+            "categoryname": "茶類",
+            "item": [
+                {
+                    "name": "錫蘭紅茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "50"
+                        },
+                        {
+                            "size": "L",
+                            "price": "55"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "60"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "無",
+                            "price": 0
+                        },
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                },
+                {
+                    "name": "斯巴克綠茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "55"
+                        },
+                        {
+                            "size": "L",
+                            "price": "65"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "70"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "無",
+                            "price": 0
+                        },
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryname": "鮮奶類",
+            "item": [
+                {
+                    "name": "錫蘭鮮奶茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "60"
+                        },
+                        {
+                            "size": "L",
+                            "price": "65"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "70"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "無",
+                            "price": 0
+                        },
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                },
+                {
+                    "name": "斯巴克鮮奶茶",
+                    "price": [
+                        {
+                            "size": "M",
+                            "price": "55"
+                        },
+                        {
+                            "size": "L",
+                            "price": "65"
+                        },
+                        {
+                            "size": "XL",
+                            "price": "70"
+                        }
+                    ],
+                    "add": [
+                        {
+                            "name": "無",
+                            "price": 0
+                        },
+                        {
+                            "name": "珍珠",
+                            "price": 5
+                        },
+                        {
+                            "name": "椰果",
+                            "price": 10
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
