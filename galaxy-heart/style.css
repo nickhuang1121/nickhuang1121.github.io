@@ -1,0 +1,30 @@
+:root{color-scheme:dark;--ink:#f7f1ff;--muted:#c9bfdb;--gold:#ffd995;--line:#4b3865;--space:#100c23}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 75% 12%,#39235e 0,transparent 36rem),var(--space);color:var(--ink);font:1.05rem/1.72 system-ui,sans-serif}
+a{color:var(--gold);text-underline-offset:.23em}
+a:focus-visible{outline:3px solid var(--gold);outline-offset:5px}
+.shell{width:min(70rem,100% - 2.75rem);margin-inline:auto}
+.header,.footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:1.3rem;border-bottom:1px solid var(--line)}
+.header nav{display:flex;gap:1.2rem;flex-wrap:wrap}
+.studio{font-weight:700;color:var(--ink);text-decoration:none}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:clamp(2rem,7vw,6rem);padding-block:clamp(3rem,9vw,7rem)}
+.tag{color:var(--gold);font-weight:650;margin:0 0 1rem}
+h1,h2{line-height:1.16;letter-spacing:-.025em}
+h1{margin:0;font-size:clamp(2.8rem,8vw,6.7rem)}
+h1 span{display:block;margin-top:.55rem;color:var(--gold);font-size:.57em}
+h2{font-size:clamp(1.55rem,4vw,2.35rem);margin:0 0 1rem}
+h2 span{color:var(--muted);font-size:.65em}
+.lead{font-size:clamp(1.1rem,2vw,1.36rem);color:var(--muted);max-width:30rem;margin:1.4rem 0 1.8rem}
+.action{display:inline-block;padding:.64rem 1.2rem;border-radius:.65rem;background:var(--gold);color:#2b1932;font-weight:750;text-decoration:none}
+.shot{margin:0;justify-self:center;width:min(100%,20rem)}
+.shot img{display:block;width:100%;height:auto;border:1px solid #8165a4;border-radius:1.15rem;box-shadow:0 1.3rem 4rem #090514a8}
+.details{padding:2.3rem 0;border-top:1px solid var(--line)}
+.details p{color:var(--muted);max-width:49rem}
+.footer{border-top:1px solid var(--line);border-bottom:0;color:var(--muted)}
+.policy{width:min(51rem,100% - 2.75rem);padding-block:3rem}
+.policy h1{font-size:clamp(2.2rem,5vw,3.7rem)}
+.policy h2{font-size:1.5rem;margin-top:2rem}
+.policy p,.policy li{color:var(--muted)}
+.policy section+section{border-top:1px solid var(--line);margin-top:2.7rem;padding-top:1.25rem}
+@media(max-width:41rem){.hero{grid-template-columns:1fr;gap:2rem}.shot{width:min(72%,18rem)}.header nav{gap:.85rem}}
